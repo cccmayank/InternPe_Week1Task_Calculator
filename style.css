@@ -1,0 +1,123 @@
+:root{
+  --bg: #0f1724;
+  --panel: #111827;
+  --accent: #0ea5a4;
+  --btn: #1f2937;
+  --btn-ops: #0ea5a4;
+  --text: #e6eef2;
+  --muted: #94a3b8;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  background:linear-gradient(180deg,#071025 0%, #0f1724 100%);
+  color:var(--text);
+}
+.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.calculator{
+  width:360px;
+  max-width:95vw;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:16px;
+  padding:18px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.display {
+  background: rgba(0,0,0,0.25);
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  min-height: 64px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  word-break:break-all;
+}
+
+.history {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity:0.9;
+}
+
+.current {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+
+.keys {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button.key {
+  border: none;
+  padding: 16px 12px;
+  border-radius: 10px;
+  font-size: 18px;
+  background: var(--btn);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.6);
+  transition: transform .06s ease, box-shadow .06s ease, background .12s;
+}
+button.key:active { transform: translateY(2px); }
+button.key:hover { filter:brightness(1.03); }
+
+button.op {
+  background: linear-gradient(180deg, var(--btn-ops), #048d86);
+  color: #042a29;
+  font-weight:700;
+  box-shadow: 0 6px 14px rgba(2,160,153,0.12);
+}
+
+button.wide {
+  grid-column: span 2;
+}
+
+.meta {
+  display:flex;
+  gap:8px;
+  margin-bottom:10px;
+}
+.meta .small {
+  flex:1;
+  padding:8px 10px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.02);
+  color:var(--muted);
+  font-size:13px;
+  text-align:center;
+}
+
+footer.note {
+  margin-top:12px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+
+@media (max-width:420px){
+  .calculator{padding:12px;border-radius:12px}
+  .current{font-size:22px}
+  button.key{padding:12px;font-size:16px}
+}
